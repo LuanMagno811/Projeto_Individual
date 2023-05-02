@@ -1,0 +1,141 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1B2124;
+    font-family: monospace;
+
+}
+
+/* Header Navbar*/
+
+.containerGeralHome {
+    width: 100%;
+}
+
+.containerNavbar {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    background-color: #0a203d;
+}
+
+.headerContainer {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.ImgLogo img {
+    display: flex;
+    align-items: center;
+    width: 40%;
+    margin: 14%;
+    margin-left: 20%;
+}
+
+.itensNavbar {
+    display: flex;
+    list-style: none;
+    margin-left: 40%;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.itensNavbar a {
+    /* margin: 100%; */
+    font-size: 130%;
+    color: white;
+    text-decoration: none;
+}
+
+.ButtonLoggin {
+    cursor: pointer;
+    padding: 7px 25px;
+    color: white;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    text-decoration: none;
+    background-color: #681212;
+}
+
+/* Explicação História */
+
+.homeimg1 {
+    display: flex;
+    margin-top: 5%;
+    background-image: url(img/RE21.jpg);
+    background-size: 100%;
+    width: 100%;
+    height: 700px;
+    text-align: center;
+    background-repeat: no-repeat;
+    align-items: center;
+    color: white;
+}
+
+.tituloRE2 {
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.tituloRE2 h3{
+    width: 100%;
+    font-size: 300%;
+}
+
+.textoRE2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.textoRE2 p{
+    display: flex;
+    font-size: 150%;
+    color: white;
+    width: 80%;   
+}
+
+/* Sobre Franquia*/
+
+
+
+/* .containerSobreFranquia{
+    background-color: white;
+    margin-left: 15%;
+    width: 70%;
+} */
+
+.imgWellcome{
+    display: flex;
+    justify-content: center;
+}
+
+.imgWellcome img{
+    margin-top: 5%;
+    margin-bottom: 2%;
+    display: flex;
+    justify-content: center;
+}
+
+.tituloSobreFranquia{
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #8c1919;
+    justify-content: center;
+    font-size: 180%;
+}
+
+.textoSobreFranquia{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 255, 255);
+}
+
+.textoSobreFranquia p{
+    display: flex;
+    width: 80%;
+    font-size: 150%;
+}
