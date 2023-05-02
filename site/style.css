@@ -6,7 +6,7 @@ body {
 
 }
 
-/* Header Navbar*/
+/* HEADER NAVBAR*/
 
 .containerGeralHome {
     width: 100%;
@@ -16,7 +16,8 @@ body {
     display: flex;
     width: 100%;
     margin: auto;
-    background-color: #0a203d;
+    background-color: #101175ca;
+    background-blend-mode: multiply;
 }
 
 .headerContainer {
@@ -58,12 +59,12 @@ body {
     background-color: #681212;
 }
 
-/* Explicação História */
+/* EXPLICANDO HISTÓRIA */
 
 .homeimg1 {
     display: flex;
     margin-bottom: 3%;
-    background-image: url(img/RE21.jpg);
+    background-image: url(img/RE2R.jpg);
     background-size: 100%;
     width: 100%;
     height: 700px;
@@ -97,7 +98,7 @@ body {
     width: 80%;   
 }
 
-/* Sobre Franquia*/
+/* SOBRE FRANQUIA*/
 
 .imgWelcome{
     display: flex;
@@ -140,7 +141,7 @@ body {
     background: white;
 }
 
-/* Crítica */
+/* CRÍTICA */
 
 .tituloCritica{
     display: flex;
@@ -173,4 +174,25 @@ body {
     display: flex;
     justify-content: center;
     width: 40%;
+}
+
+.linkCritica{
+    display: flex;
+    justify-content: center;
+    color: white;
+    width: 100%;
+    font-size: 100%;
+}
+
+/* Página PERSONAGENS */
+
+.PersonagensImgGeral{
+    display: flex;
+    background-image: url(img/wpp\ RE2.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 2960px;
+    background-color: #444444ca;
+    background-blend-mode: multiply;
 }
