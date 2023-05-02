@@ -62,7 +62,7 @@ body {
 
 .homeimg1 {
     display: flex;
-    margin-top: 5%;
+    margin-bottom: 3%;
     background-image: url(img/RE21.jpg);
     background-size: 100%;
     width: 100%;
@@ -99,43 +99,78 @@ body {
 
 /* Sobre Franquia*/
 
-
-
-/* .containerSobreFranquia{
-    background-color: white;
-    margin-left: 15%;
-    width: 70%;
-} */
-
-.imgWellcome{
+.imgWelcome{
     display: flex;
     justify-content: center;
 }
 
-.imgWellcome img{
-    margin-top: 5%;
-    margin-bottom: 2%;
+.imgWelcome img{
+    margin-top: 4%;
+    margin-bottom: 0%;
     display: flex;
     justify-content: center;
 }
 
 .tituloSobreFranquia{
     display: flex;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #8c1919;
+    font-family: 'Times New Roman', Times, serif;
+    color: #ab2121;
     justify-content: center;
-    font-size: 180%;
+    font-size: 175%;
+    margin-top: -1%;
 }
 
 .textoSobreFranquia{
     display: flex;
     justify-content: center;
-    align-items: center;
-    color: rgb(255, 255, 255);
+    color: white;
 }
 
 .textoSobreFranquia p{
     display: flex;
     width: 80%;
     font-size: 150%;
+}
+
+.containerDivisoria{
+    display: flex;
+    width: 70%;
+    margin: 3% 15%;
+    height: 0.5px;
+    background: white;
+}
+
+/* Crítica */
+
+.tituloCritica{
+    display: flex;
+    justify-content: center;
+    font-family: 'Times New Roman', Times, serif;
+    color: #ab2121;
+    font-size: 175%;
+    margin-top: -1%;
+}
+
+.textoCritica{
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.textoCritica p{
+    display: flex;
+    width: 80%;
+    font-size: 150%;
+}
+
+.imgCritica{
+    display: flex;
+    justify-content: center;
+}
+
+.imgCritica img{
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
+    width: 40%;
 }
