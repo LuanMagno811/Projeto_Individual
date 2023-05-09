@@ -12,7 +12,7 @@ body {
     width: 100%;
 }
 
-.containerNavbar {
+.containerHeader {
     display: flex;
     width: 100%;
     margin: auto;
@@ -29,8 +29,9 @@ body {
 .ImgLogo img {
     display: flex;
     align-items: center;
-    width: 40%;
+    width: 100%;
     margin: 14%;
+    border-radius: 10%;
     margin-left: 20%;
 }
 
@@ -80,39 +81,40 @@ body {
     flex-direction: column;
 }
 
-.tituloRE2 h3{
+.tituloRE2 h3 {
     width: 100%;
     font-size: 300%;
 }
 
-.textoRE2{
+.textoRE2 {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.textoRE2 p{
+.textoRE2 p {
     display: flex;
     font-size: 150%;
     color: white;
-    width: 80%;   
+    width: 80%;
+
 }
 
 /* SOBRE FRANQUIA*/
 
-.imgWelcome{
+.imgWelcome {
     display: flex;
     justify-content: center;
 }
 
-.imgWelcome img{
+.imgWelcome img {
     margin-top: 4%;
     margin-bottom: 0%;
     display: flex;
     justify-content: center;
 }
 
-.tituloSobreFranquia{
+.tituloSobreFranquia {
     display: flex;
     font-family: 'Times New Roman', Times, serif;
     color: #ab2121;
@@ -121,19 +123,19 @@ body {
     margin-top: -1%;
 }
 
-.textoSobreFranquia{
+.textoSobreFranquia {
     display: flex;
     justify-content: center;
     color: white;
 }
 
-.textoSobreFranquia p{
+.textoSobreFranquia p {
     display: flex;
     width: 80%;
     font-size: 150%;
 }
 
-.containerDivisoria{
+.containerDivisoria {
     display: flex;
     width: 70%;
     margin: 3% 15%;
@@ -143,7 +145,7 @@ body {
 
 /* CRÍTICA */
 
-.tituloCritica{
+.tituloCritica {
     display: flex;
     justify-content: center;
     font-family: 'Times New Roman', Times, serif;
@@ -152,41 +154,49 @@ body {
     margin-top: -1%;
 }
 
-.textoCritica{
+.textoCritica {
     display: flex;
     justify-content: center;
     color: white;
 }
 
-.textoCritica p{
+.textoCritica p {
     display: flex;
     width: 80%;
     font-size: 150%;
 }
 
-.imgCritica{
+.imgCritica {
     display: flex;
     justify-content: center;
 }
 
-.imgCritica img{
+.imgCritica img {
     margin-top: 3%;
     display: flex;
     justify-content: center;
     width: 40%;
 }
 
-.linkCritica{
+.linkCritica {
     display: flex;
     justify-content: center;
     color: white;
+    list-style: none;
     width: 100%;
     font-size: 100%;
 }
 
+.linkCritica a {
+    text-decoration: none;
+    color: rgb(0, 179, 255);
+}
+
+
+
 /* Página PERSONAGENS */
 
-.PersonagensImgGeral{
+.PersonagensImgGeral {
     display: flex;
     background-image: url(img/wpp\ RE2.jpg);
     background-size: 100%;
@@ -195,4 +205,75 @@ body {
     height: 2960px;
     background-color: #444444ca;
     background-blend-mode: multiply;
+}
+
+/* Leon */
+.PersonagensContainetGeral {
+    display: flex;
+    justify-content: center;
+}
+
+.containerLeonGeral {
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff4a;
+    margin: 5%;
+    width: 60%;
+    border-radius: 2%;
+    /* border: 3px solid rgb(142, 142, 142); */
+}
+
+
+.ImgLeon img {
+    display: flex;
+    margin-top: 20%;
+    margin-left: 0%;
+    border-radius: 55%;
+}
+
+.sobreLeon {
+    font-size: 150%;
+    width: 60%;
+    margin-left: 10%;
+}
+
+.containerDivisoriaP {
+    display: flex;
+    width: 90%;
+    margin: 3% 5%;
+    height: 0.5px;
+    background: white;
+}
+
+
+/* Claire */
+.containerClaireGeral {
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff4a;
+    margin: 5%;
+    width: 60%;
+    border-radius: 2%;
+}
+
+
+.ImgClaire img {
+    display: flex;
+    margin-top: 20%;
+    margin-left: 0%;
+    border-radius: 55%;
+}
+
+.sobreClaire {
+    font-size: 150%;
+    width: 60%;
+    margin-left: 10%;
+}
+
+.containerDivisoriaP {
+    display: flex;
+    width: 90%;
+    margin: 3% 5%;
+    height: 0.5px;
+    background: white;
 }
