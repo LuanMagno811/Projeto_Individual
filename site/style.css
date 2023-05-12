@@ -16,7 +16,7 @@ body {
     display: flex;
     width: 100%;
     margin: auto;
-    background-color: #101175ca;
+    background-color: #0e105fca;
     background-blend-mode: multiply;
 }
 
@@ -29,9 +29,8 @@ body {
 .ImgLogo img {
     display: flex;
     align-items: center;
-    width: 100%;
-    margin: 14%;
-    border-radius: 10%;
+    width: 90%;
+    margin: 10%;
     margin-left: 20%;
 }
 
@@ -55,7 +54,7 @@ body {
     padding: 7px 25px;
     color: white;
     letter-spacing: 1px;
-    border-radius: 10px;
+    border-radius: 5px;
     text-decoration: none;
     background-color: #681212;
 }
@@ -79,6 +78,8 @@ body {
     width: 100%;
     justify-content: center;
     flex-direction: column;
+    /* transition: .5s ease-out;
+    transition-delay: .2s;   */
 }
 
 .tituloRE2 h3 {
@@ -192,8 +193,6 @@ body {
     color: rgb(0, 179, 255);
 }
 
-
-
 /* Página PERSONAGENS */
 
 .PersonagensImgGeral {
@@ -202,32 +201,32 @@ body {
     background-size: 100%;
     background-repeat: no-repeat;
     width: 100%;
-    height: 2960px;
-    background-color: #444444ca;
+    height: 3400px;
+    background-color: #444444a6;
     background-blend-mode: multiply;
 }
 
-/* Leon */
 .PersonagensContainetGeral {
     display: flex;
     justify-content: center;
 }
 
+/* Leon */
 .containerLeonGeral {
     display: flex;
     justify-content: center;
-    background-color: #ffffff4a;
+    background-color: #d1d1d1a8;
     margin: 5%;
     width: 60%;
-    border-radius: 2%;
-    /* border: 3px solid rgb(142, 142, 142); */
+   border-top-left-radius: 140px;
+   border-bottom-left-radius: 140px;
 }
 
 
 .ImgLeon img {
     display: flex;
-    margin-top: 20%;
-    margin-left: 0%;
+    margin-top: 23%;
+    margin-left: 5%;
     border-radius: 55%;
 }
 
@@ -235,6 +234,7 @@ body {
     font-size: 150%;
     width: 60%;
     margin-left: 10%;
+    color: rgb(0, 0, 0);
 }
 
 .containerDivisoriaP {
@@ -247,27 +247,69 @@ body {
 
 
 /* Claire */
+.containerPosition{
+    display: flex;
+    justify-content: end;
+}
+
 .containerClaireGeral {
     display: flex;
     justify-content: center;
-    background-color: #ffffff4a;
-    margin: 5%;
-    width: 60%;
-    border-radius: 2%;
+    background-color: #d1d1d1a8;
+    margin-right: 5%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    width: 55%;
+    border-top-right-radius: 140px;
+    border-bottom-right-radius: 140px;
 }
-
 
 .ImgClaire img {
     display: flex;
     margin-top: 20%;
     margin-left: 0%;
-    border-radius: 55%;
+    border-radius: 50%;
 }
 
 .sobreClaire {
     font-size: 150%;
     width: 60%;
+    margin-left: 5%;
+    color: rgb(0, 0, 0);
+}
+
+.containerDivisoriaP {
+    display: flex;
+    width: 90%;
+    margin: 3% 5%;
+    height: 1px;
+    background: rgb(253, 253, 253);
+}
+
+/* Ada */
+.containerAda {
+    display: flex;
+    justify-content: center;
+    background-color: #d1d1d1a8;
+    margin: 5%;
+    width: 55%;
+    border-radius: 0%;
+    border-top-left-radius: 140px;
+    border-bottom-left-radius: 140px;
+}
+
+.ImgAda img {
+    display: flex;
+    margin-top: 16%;
+    margin-left: 7%;
+    border-radius: 55%;
+}
+
+.sobreAda {
+    font-size: 150%;
+    width: 60%;
     margin-left: 10%;
+    color: rgb(0, 0, 0);
 }
 
 .containerDivisoriaP {
@@ -276,4 +318,44 @@ body {
     margin: 3% 5%;
     height: 0.5px;
     background: white;
+}
+
+/* Sherry */
+.containerPosition{
+    display: flex;
+    justify-content: end;
+}
+
+.containerSherryGeral {
+    display: flex;
+    justify-content: center;
+    background-color: #d1d1d1a8;
+    margin-right: 5%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    width: 55%;
+    border-top-right-radius: 140px;
+    border-bottom-right-radius: 140px;
+}
+
+.ImgSherry img {
+    display: flex;
+    margin-top: 15%;
+    margin-left: 3%;
+    border-radius: 50%;
+}
+
+.sobreSherry {
+    font-size: 150%;
+    width: 60%;
+    margin-left: 5%;
+    color: rgb(0, 0, 0);
+}
+
+.containerDivisoriaP {
+    display: flex;
+    width: 90%;
+    margin: 3% 5%;
+    height: 1px;
+    background: rgb(253, 253, 253);
 }
