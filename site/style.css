@@ -195,6 +195,10 @@ body {
 
 /* Página PERSONAGENS */
 
+.containerPersonagens{
+    backdrop-filter: blur(10px);
+}
+
 .PersonagensImgGeral {
     display: flex;
     background-image: url(img/wpp\ RE2.jpg);
@@ -220,6 +224,7 @@ body {
     width: 60%;
    border-top-left-radius: 140px;
    border-bottom-left-radius: 140px;
+
 }
 
 
@@ -346,6 +351,82 @@ body {
 }
 
 .sobreSherry {
+    font-size: 150%;
+    width: 60%;
+    margin-left: 5%;
+    color: rgb(0, 0, 0);
+}
+
+.containerDivisoriaP {
+    display: flex;
+    width: 90%;
+    margin: 3% 5%;
+    height: 1px;
+    background: rgb(253, 253, 253);
+}
+
+/*  Annete  */
+
+.containerAnnete {
+    display: flex;
+    justify-content: center;
+    background-color: #d1d1d1a8;
+    margin: 5%;
+    width: 55%;
+    border-radius: 0%;
+    border-top-left-radius: 140px;
+    border-bottom-left-radius: 140px;
+}
+
+.ImgAnnete img {
+    display: flex;
+    margin-top: 24%;
+    margin-left: 7%;
+    border-radius: 55%;
+}
+
+.sobreAnnete {
+    font-size: 150%;
+    width: 60%;
+    margin-left: 10%;
+    color: rgb(0, 0, 0);
+}
+
+.containerDivisoriaP {
+    display: flex;
+    width: 90%;
+    margin: 3% 5%;
+    height: 0.5px;
+    background: white;
+}
+
+/* Willian */
+
+.containerPosition{
+    display: flex;
+    justify-content: end;
+}
+
+.containerWillianGeral {
+    display: flex;
+    justify-content: center;
+    background-color: #d1d1d1a8;
+    margin-right: 5%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    width: 55%;
+    border-top-right-radius: 140px;
+    border-bottom-right-radius: 140px;
+}
+
+.ImgWillian img {
+    display: flex;
+    margin-top: 15%;
+    margin-left: 3%;
+    border-radius: 50%;
+}
+
+.sobreWillian {
     font-size: 150%;
     width: 60%;
     margin-left: 5%;
