@@ -16,8 +16,10 @@ body {
     display: flex;
     width: 100%;
     margin: auto;
-    background-color: #0e105fca;
+    background-color: #0e0f5f;
     background-blend-mode: multiply;
+    /* position: sticky;
+    top: 0; */
 }
 
 .headerContainer {
@@ -29,7 +31,7 @@ body {
 .ImgLogo img {
     display: flex;
     align-items: center;
-    width: 90%;
+    width: 70%;
     margin: 10%;
     margin-left: 20%;
 }
@@ -203,9 +205,9 @@ body {
     display: flex;
     background-image: url(img/wpp\ RE2.jpg);
     background-size: 100%;
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat; */
     width: 100%;
-    height: 3400px;
+    height: 4250px;
     background-color: #444444a6;
     background-blend-mode: multiply;
 }
@@ -458,7 +460,7 @@ body {
     border-radius: 0%;
     border-top-left-radius: 140px;
     border-bottom-left-radius: 140px;
-    /* border: 2px solid rgb(155, 0, 0); */
+    border: 1px solid rgb(86, 85, 85);
 }
 
 .ImgTyrant img {
@@ -512,4 +514,146 @@ body {
     margin: 3% 5%;
     height: 2px;
     background: rgb(155, 0, 0);
+}
+
+/* Willian G */
+
+.willianGTitulo{
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 150%;
+}
+
+.containerBody{
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+}
+
+.containerGeralG{
+    justify-content: center;
+    width: 60%;
+    margin: 0;
+    font-family: Arial;
+    margin-bottom: 5%;
+}
+
+.G1 .tabcontent{
+    display: flex;
+    flex-direction: column;
+}
+
+.tablink {
+    background-color: #662222;
+    color: rgb(255, 255, 255);
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.5s;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 20%;
+}
+
+.tablink:hover {
+    background-color: rgba(24, 24, 24, 0.999);
+    color: white;
+}
+
+.tabcontent {
+    color: white;
+    display: none;
+    padding: 50px 0px;
+    height: 100%;
+}
+
+/* G1 */
+#G1 {
+    background-color: rgba(24, 24, 24, 0.999);
+}
+
+.ImgWG img{
+    display: flex;
+    width: 100%;
+    margin-bottom: 3%;
+}
+
+.TextoG{
+    width: 80%; 
+    margin-left: 10%;
+    margin-bottom: -3%;
+}
+
+/* G2 */
+
+#G2 {
+    background-color: rgba(24, 24, 24, 0.999);
+}
+
+.ImgWG img{
+    display: flex;
+    width: 100%;
+    margin-bottom: 3%;
+}
+
+.TextoG{
+    width: 80%; 
+    margin-left: 10%;
+    margin-bottom: -3%;
+}
+
+/* G3 */
+
+#G3 {
+    background-color:rgba(24, 24, 24, 0.999);
+}
+
+.ImgWG img{
+    display: flex;
+    width: 100%;
+    margin-bottom: 3%;
+}
+
+.TextoG{
+    width: 80%; 
+    margin-left: 10%;
+    margin-bottom: -3%;
+}
+
+/* G4 */
+
+#G4 {
+    background-color:  rgba(24, 24, 24, 0.999);
+}
+
+.ImgWG img{
+    display: flex;
+    width: 100%;
+    margin-bottom: 3%;
+}
+
+.TextoG{
+    width: 80%; 
+    margin-left: 10%;
+    margin-bottom: -3%;
+}
+
+/* G5 */
+
+#G5 {
+    background-color: rgba(24, 24, 24, 0.999);
+}
+
+.ImgWG img{
+    display: flex;
+    width: 100%;
+    margin-bottom: 3%;
+}
+
+.TextoG{
+    width: 80%; 
+    margin-left: 10%;
+    margin-bottom: -3%;
 }

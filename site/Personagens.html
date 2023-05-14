@@ -182,7 +182,8 @@
                                 <h3>ESTRATÉGIAS</h3>
                                 <p>
                                     A melhor estratégia aqui é fugir, mas caso seja necessário:<br><br>
-                                    -Utilizar de Granadas de Atordoamento para desnorteá-lo por alguns instantes;<br><br>
+                                    -Utilizar Granadas de Atordoamento para desnorteá-lo por alguns
+                                    instantes;<br><br>
                                     -Acertar sua cabeça até que ele caia de joelhos.
                                 </p>
                             </div>
@@ -191,17 +192,82 @@
 
                     <div class="containerDivisoriaPV"></div>
 
-                    <div class="containerWillianG2">
-                        <div class="ImgWillianG2">
-                            <img src="img/Personagens/WilliamG2.jpg" alt="imgWillianG2">
-                        </div>
-                        <div class="sobreWillianG2">
-                            <h3>Willian Birkin G</h3>
-                            <p>
-                                Já transformado em monstro, ele se vinga, tentando eliminar todos que tentaram roubar
-                                sua preciosa criação, e agora busca um organismo geneticamente compatível para a
-                                implantação de um embrião G.
-                            </p>
+                    <!-- WILLIAN G -->
+                    <div class="willianGTitulo">
+                        <h3> William Birkin G (Infectado)</h3>
+                    </div>
+                    <div class="containerBody">
+                        <div class="containerGeralG">
+
+
+                            <button class="tablink" onclick="openPage('G1', this, 'rgba(24, 24, 24, 0.999)')"
+                                id="defaultOpen">G1</button>
+                            <button class="tablink"
+                                onclick="openPage('G2', this, 'rgba(24, 24, 24, 0.999)')">G2</button>
+                            <button class="tablink"
+                                onclick="openPage('G3', this, 'rgba(24, 24, 24, 0.999)')">G3</button>
+                            <button class="tablink"
+                                onclick="openPage('G4', this, 'rgba(24, 24, 24, 0.999)')">G4</button>
+                            <button class="tablink"
+                                onclick="openPage('G5', this, 'rgba(24, 24, 24, 0.999)')">G5</button>
+
+                            <div class="containerConteudo">
+                                <div id="G1" class="tabcontent">
+                                    <div class="ImgWG">
+                                        <img src="img/Personagens/G1.jpg" alt="imgG1">
+                                    </div>
+                                    <div class="TextoG">
+                                        <p> Ao ser atacado pelos soldados da U.S.S., William se injeta com uma amostra
+                                            de
+                                            sua criação em busca de vingança contra a Umbrella. Em sua 1ª forma
+                                            como
+                                            arma biológica ainda é possível ver alguns traços humanos.<br><br>
+                                            William G1 ataca utilizando um grande pedaço de cano de ferro, e a melhor
+                                            estratégia é manter
+                                            distância e acertar o grande olho em seu braço direito.</p>
+                                    </div>
+                                </div>
+
+                                <div id="G2" class="tabcontent">
+                                    <div class="ImgWG">
+                                        <img src="img/Personagens/G2.jpg" alt="imgG2">
+                                    </div>
+                                    <div class="TextoG">
+                                        <p>Em sua 2ª forma a mutação é mais evidante, com o surgimento de uma cabeça própria. Como ataque esse monstro pode causar danos sérios ao jogador utilizando sua garra bem desenvolvida de seu braço direito.<br><br> 
+                                        A melhor estratégia é manter distância e acertar os olhos espalhados pelo seu corpo (em seu braço direito, perna esquerda e costas).</p>
+                                    </div>
+                                </div>
+
+                                <div id="G3" class="tabcontent">
+                                    <div class="ImgWG">
+                                        <img src="img/Personagens/G3.jpg" alt="imgG2">
+                                    </div>
+                                    <div class="TextoG">
+                                        <p>A 3ª forma de William Birkin possui membros superiores extras, e com eles para atacar de forma mais violenta junto de suas garras. Willian G3 também utiliza partes do cenário para lançar em direção ao personagem.<br><br> 
+                                        Aqui a melhor estratégia continua sendo manter a distância e acertar os olhos espalhados pelo seu corpo, até que a criatura caia e exponha seu ponto fraco na região do peito.</p>
+                                    </div>
+                                </div>
+
+                                <div id="G4" class="tabcontent">
+                                    <div class="ImgWG">
+                                        <img src="img/Personagens/G4.jpg" alt="imgG2">
+                                    </div>
+                                    <div class="TextoG">
+                                        <p>A 4ª forma alterna entre bípede e quadrupede, ataca violentamente o jogador e pode saltar pelo cenário e escalar as paredes com o intuito de pular encima do personagem.<br><br> A estratégia aqui é usar todo o seu poder de fogo nos olhos presentes na parte central de seu corpo.</p>
+                                    </div>
+                                </div>
+
+                                <div id="G5" class="tabcontent">
+                                    <div class="ImgWG">
+                                        <img src="img/Personagens/G5.jpg" alt="imgG2">
+                                    </div>
+                                    <div class="TextoG">
+                                        <p>A 5ª e ultima forma é a mais bizarra de todas e é exclusiva dos cenários B (Cenário que você joga com o personagem que você não escolheu no A). Ele avança lentamente pelo ultimo mapa (vagão do trem) utilizando dos tentáculos para atacar o personagem. <br><br>
+                                        Matenha distância e utilize todas as armas a sua disposição para se livrar de William de uma vez por todas.</p>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
 
@@ -211,3 +277,22 @@
         </div>
 
     </div>
+
+    <script>
+        function openPage(pageName, elmnt, color) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].style.backgroundColor = "";
+            }
+            document.getElementById(pageName).style.display = "block";
+            elmnt.style.backgroundColor = color;
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
