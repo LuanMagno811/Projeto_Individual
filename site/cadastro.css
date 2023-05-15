@@ -1,0 +1,59 @@
+body{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    /* background-color: rgb(83, 3, 3);
+    background-image: url(img/Cadastro/LeonSave.jpg);
+    background-size: 128%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(img/Cadastro/Save.webp);
+    background-size: 100%; */
+}
+
+.fundoCadastro{
+    display: flex;
+}
+
+.imgCadastro{
+    height: 100%;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerCadastro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ItensCadastro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    background-color: rgba(255, 255, 255, 0.841);
+    border-radius: 10px;
+    margin-left: 200px;
+}
+
+.ItensCadastro input{
+    margin: 5%;
+    padding: 4%;
+    border-radius: 10px;
+}
+
+.ItensCadastro button{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 4%;
+}
