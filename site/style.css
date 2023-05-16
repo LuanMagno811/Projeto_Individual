@@ -35,6 +35,7 @@ body {
     margin: 10%;
     margin-left: 20%;
     transition: 0.5s;
+    border: 1px solid white;
 }
 
 .ImgLogo img:hover{
@@ -516,7 +517,7 @@ body {
     background-repeat: no-repeat;
     margin: 5%;
     width: 20%;
-    border: 4px solid rgb(0, 0, 0);
+    /* border: 4px solid rgb(0, 0, 0); */
     border-radius: 10px;
 }
 

@@ -1,0 +1,17 @@
+.containerPerguntas{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 30%;
+    height: 110%;
+    align-self: center;
+    margin-left: 5%;
+    margin-top: 100px;
+}
+
+.containerPerguntas input{
+    display: flex;
+    margin-left: 10px;
+    width: 100px;
+    margin-top: -5px;
+}

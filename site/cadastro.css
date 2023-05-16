@@ -1,13 +1,21 @@
 
 body{
-    background-color: rgb(49, 49, 49);
+    background-color: rgb(23, 23, 23);
 }
 
 .fundoCadastro{
     display: flex;
     justify-content: center;
     flex-direction: column;
-    margin-top: 90px;
+    margin-top: 60px;
+    margin-left: 360px;
+}
+
+.fundoLogin{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 130px;
     margin-left: 360px;
 }
 
@@ -69,6 +77,11 @@ body{
     margin: 5%;
     padding: 4%;
     border-radius: 10px;
+}
+
+.ItensCadastro :focus{
+    background-color: black;
+    color: white
 }
 
 .ItensCadastro button{
