@@ -1,44 +1,68 @@
-body{
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
 
-    /* background-color: rgb(83, 3, 3);
-    background-image: url(img/Cadastro/LeonSave.jpg);
-    background-size: 128%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url(img/Cadastro/Save.webp);
-    background-size: 100%; */
+body{
+    background-color: rgb(49, 49, 49);
 }
 
 .fundoCadastro{
     display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 90px;
+    margin-left: 360px;
 }
 
-.imgCadastro{
-    height: 100%;
-    width: 60%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.imgCadastro img{
+    width: 700px;
+    height: 200px;
+    margin-bottom: -5px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    z-index: -1;
+}
+
+.closeBtn {
+    margin-left: 20px;
+    margin-top: -180px;
+    z-index: 60;
+}
+
+.closeBtn img{
+    width: 30px;
+    height: 30px;
 }
 
 .containerCadastro{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    width: 700px;
+    margin-top: 146px;
+    background-color: rgb(25, 39, 88);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .ItensCadastro{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 40%;
-    background-color: rgba(255, 255, 255, 0.841);
+    width: 50%;
     border-radius: 10px;
-    margin-left: 200px;
+}
+
+.ItensCadastro a{
+    margin-top: -10px;
+    margin-bottom: 10px;
+    /* text-decoration: none; */
+    color: rgb(147, 0, 147);
+
+}
+
+.ItensCadastro h4{
+    color: white;
+    margin-bottom: -10px;
+    font-family: monospace;
+    font-size: 15px;
 }
 
 .ItensCadastro input{
@@ -50,10 +74,34 @@ body{
 .ItensCadastro button{
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: 50%;
     margin-top: 20px;
     margin-bottom: 20px;
     border-radius: 10px;
     cursor: pointer;
-    padding: 4%;
+    padding: 7px 25px;
+    color: white;
+    letter-spacing: 1px;
+    text-decoration: none;
+    background-color: #681212;
+    transition: 0.5s;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.ItensCadastro button:hover{
+    display: flex;
+    justify-content: center;
+    width: 55%;
+    height: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 7px 25px;
+    color: white;
+    letter-spacing: 3px;
+    text-decoration: none;
+    border: 4px solid #681212;
+    transition: 0.5s;
+    background-color: transparent;
 }
