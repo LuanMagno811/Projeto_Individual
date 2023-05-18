@@ -11,6 +11,9 @@
 </head>
 
 <body>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
     <div class="fundoCadastro">
 
         <div class="imgCadastro">
@@ -34,3 +37,25 @@
 </body>
 
 </html>
+
+<script>
+    function Cadastrar() {
+        var dadosDoUsuario = {
+            nome: nomeInput.value,
+            email: emailInput.value,
+            senha: senhaInput.value
+        }
+
+        if (dadosDoUsuario.nome != "") {
+            alert("foi");
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Dados incompletos',
+                imageUrl: ''
+            })
+        }
+}
+
+</script>

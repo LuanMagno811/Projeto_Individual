@@ -1,17 +1,38 @@
 .containerPerguntas{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     background-color: white;
-    width: 30%;
-    height: 110%;
+    border-radius: 10px;
+    width: 25%;
+    height: 100px;
     align-self: center;
-    margin-left: 5%;
-    margin-top: 100px;
+    margin-left: 35%;
+    margin-top: 50px;
 }
 
-.containerPerguntas input{
+.txtoQuiz{
     display: flex;
-    margin-left: 10px;
-    width: 100px;
-    margin-top: -5px;
+    justify-content: center;
+}
+
+.txtoQuiz a{
+    color: red;
+}
+
+.containerPerguntas button{
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin-left: 125px;
+    width: 30%;
+    height: 30px;
+    margin-top: 0px;
+}
+
+.btnQuiz{
+    display: flex;
+    justify-content: center;
 }
