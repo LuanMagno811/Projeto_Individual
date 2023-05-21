@@ -46,8 +46,13 @@
             senha: senhaInput.value
         }
 
-        if (dadosDoUsuario.nome != "") {
-            alert("foi");
+        if (dadosDoUsuario.nome != "" || dadosDoUsuario.email != "" || dadosDoUsuario.senha != "") {
+            Swal.fire({
+                icon: 'success',
+                title: 'Cadastro realizado',
+                imageUrl: ''
+            })            
+
         } else {
             Swal.fire({
                 icon: 'error',
