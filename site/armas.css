@@ -1,0 +1,35 @@
+/* .bodyContainer img{
+    position: relative;
+    z-index: -1;
+    background-repeat: no-repeat;
+    width: 100%;
+    
+} */
+
+
+.bodyContainer{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-image: url(img/Armas/Delegacia.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.imgT{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-image: url(img/RE21.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.containerHeader {
+    display: flex;
+    width: 100%;
+    background-color: transparent;
+    background-blend-mode: multiply;
+    /* position: sticky;
+    top: 0; */
+}

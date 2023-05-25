@@ -26,7 +26,7 @@
             <ul class="itensNavbar">
                 <li><a href="Personagens.html">Personagens</a></li>
                 <li><a href="">Teste</a></li>
-                <li><a href="mapas.html">Mapas</a></li>
+                <li><a href="armas.html">Armas</a></li>
                 <li><a href="login.html" class="ButtonLoggin">LOGIN</a></li>
                 <div class="separacaoHeader"></div>
                 <li><a href="cadastro.html" class="ButtonLoggin">CADASTRO</a></li>
@@ -50,9 +50,10 @@
                 <div id="divQ1" class="textoQ1"></div>
                 <div id="divQ2" class="textoQ2"></div>
                 <div id="divQ3" class="textoQ3"></div>
+                <div id="divPorcentagemAcertos" class="porcentagemAcertos"></div>
             </div>
-
         </div>
+    </div>
 
 </body>
 <script>
@@ -86,7 +87,7 @@
                 .queue([
                     {
                         title: 'Questão 1',
-                        text: `Qual o significado da letra "S" do nome de Leon ? (1-Scott; 2-Sylas; 3-Smile)`
+                        text: 'Qual o significado da letra "S" do nome de Leon ? (1-Scott; 2-Sylas; 3-Smile)'
                     },
                     {
                         title: 'Questão 2',
@@ -125,7 +126,7 @@
                     };
                     abrirGrafico();
                     divGrafico.style.display = "flex"
-                    
+
                 })
         }
 
@@ -165,6 +166,12 @@
         } else {
             pontosErros++;
             divQ3.innerHTML += `<h3>3.Quantas transformações Willian Birking infectado possui?<br><span style= "color: rgba(224, 40, 40, 0.952)">R: 5</span><br><br></h3>`
+        }
+
+        if(pontosAcertos > 1){
+            divPorcentagemAcertos.innerHTML+=`<h2>Quantidade de Acertos: <a style= "color: rgb(31, 226, 17)">${pontosAcertos}</a>/3</h2>`
+        } else{
+            divPorcentagemAcertos.innerHTML+=`<h2>Quantidade de Acertos: <a style= "color: rgb(31, 226, 17)">${pontosAcertos}</a>/3</h2>`
         }
 
 
