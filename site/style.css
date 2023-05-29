@@ -65,6 +65,14 @@ body {
     text-decoration: none;
 }
 
+.itensNavbar a :hover {
+    margin: 20px;
+    font-size: 100%;
+    color: red;
+    transition: 0.5s;
+    text-decoration: none;
+}
+
 .ButtonLoggin {
     cursor: pointer;
     padding: 7px 25px;
@@ -243,7 +251,7 @@ body {
     /* background-repeat: no-repeat; */
     width: 100%;
     height: 4250px;
-    background-color: #444444a6;
+    background-color: #444444;
     background-blend-mode: multiply;
 }
 

@@ -6,30 +6,107 @@
     
 } */
 
-
 .bodyContainer{
     margin: 0;
     padding: 0;
     width: 100%;
-    background-image: url(img/Armas/Delegacia.webp);
+    background-image: url(img/Armas/UmbrellaWPP.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.imgT{
-    margin: 0;
+/* .imgT{
+    margin-top: -16px;
     padding: 0;
     width: 100%;
     background-image: url(img/RE21.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-}
+} */
 
 .containerHeader {
     display: flex;
     width: 100%;
     background-color: transparent;
     background-blend-mode: multiply;
+    
     /* position: sticky;
     top: 0; */
 }
+
+
+/* ARMAS SECUNDARIAS */
+.TituloAS{
+    display: flex;
+    justify-content: center;
+    color: white;
+    margin-bottom: -100px;
+    margin-top: 30px;
+    font-size: 150%;
+}
+
+.armasSecundarias{
+    display: flex;
+    margin-left: 3%;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    padding: 30px;
+    border: 1px solid white;
+    border-radius: 10px;
+    width: 95%;
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.349);
+}
+
+.containerAS{
+    display: flex;
+    margin: 10px;
+}
+
+.Faca{
+    margin-left: 5px;
+}
+
+.ImgFaca img{
+    display: flex;
+    border-radius: 10px;
+    justify-content: center;
+    width: 50%;
+    border: 1px solid white;
+}
+
+.sobrefaca{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    font-size: 17px;
+    width: 480px;
+}
+
+.sobrefaca h3{
+    color: gold;
+}
+
+.ImgAS img{
+    display: flex;
+    border-radius: 10px;
+    justify-content: center;
+    width: 55%;
+    border: 1px solid white;
+}
+
+.sobreAS{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px;
+    color: white;
+    font-size: 17px;
+}
+
+.sobreAS h3{
+    color: gold;
+}
+
+/* PISTOLAS */

@@ -24,9 +24,9 @@
                 </a>
             </div>
             <ul class="itensNavbar">
-                <li><a href="Personagens.html">Personagens</a></li>
-                <li><a href="">Teste</a></li>
-                <li><a href="armas.html">Armas</a></li>
+                <li><a class="paginas" href="Personagens.html">Personagens</a></li>
+                <li><a class="paginas" href="">Teste</a></li>
+                <li><a class="paginas" href="armas.html">Armas</a></li>
                 <li><a href="login.html" class="ButtonLoggin">LOGIN</a></li>
                 <div class="separacaoHeader"></div>
                 <li><a href="cadastro.html" class="ButtonLoggin">CADASTRO</a></li>
@@ -69,7 +69,7 @@
 
 
     function QuizInicio() {
-        emailTeste += (inputEmailTeste.value);
+        emailTeste = (inputEmailTeste.value);
 
         if (emailTeste == "") {
             alert(`Erro: email nulo ou invalido `)
@@ -146,7 +146,7 @@
         // Validação Acertos
         if (TotalDeAcertos[0] == 1) {
             pontosAcertos++;
-            divQ1.innerHTML += `<h3>1.Qual o significado da letra "S" do nome de Leon ?<br><span style= "color: rgba(127, 224, 42, 0.952)">R: 1.Scott</span><br><br></h3>`
+            divQ1.innerHTML += `<h3>1.Qual o significado da letra "S" do nome de Leon ?<br><span style= "color: #161fc4">R: 1.Scott</span><br><br></h3>`
         } else {
             pontosErros++;
             divQ1.innerHTML += `<h3>1.Qual o significado da letra "S" do nome de Leon ?<br><span style= "color: rgba(224, 40, 40, 0.952)">R: 1.Scott</span><br><br></h3>`
@@ -154,7 +154,7 @@
 
         if (TotalDeAcertos[1] == 2) {
             pontosAcertos++;
-            divQ2.innerHTML += `<h3>2.Qual o nome do Irmão de Claire Redfield?<br><span style= "color: rgba(127, 224, 42, 0.952)">R: 2.Chris Redfield</span><br><br></h3>`
+            divQ2.innerHTML += `<h3>2.Qual o nome do Irmão de Claire Redfield?<br><span style= "color:#161fc4">R: 2.Chris Redfield</span><br><br></h3>`
         } else {
             pontosErros++;
             divQ2.innerHTML += `<h3>2.Qual o nome do Irmão de Claire Redfield?<br><span style= "color: rgba(224, 40, 40, 0.952)">R: 2.Chris Redfield</span><br><br></h3>`
@@ -162,16 +162,16 @@
 
         if (TotalDeAcertos[2] == 5) {
             pontosAcertos++;
-            divQ3.innerHTML += `<h3>3.Quantas transformações Willian Birking infectado possui?<br><span style= "color: rgba(127, 224, 42, 0.952)">R: 5</span><br><br></h3>`
+            divQ3.innerHTML += `<h3>3.Quantas transformações Willian Birking infectado possui?<br><span style= "color: #161fc4">R: 5</span><br><br></h3>`
         } else {
             pontosErros++;
             divQ3.innerHTML += `<h3>3.Quantas transformações Willian Birking infectado possui?<br><span style= "color: rgba(224, 40, 40, 0.952)">R: 5</span><br><br></h3>`
         }
 
         if(pontosAcertos > 1){
-            divPorcentagemAcertos.innerHTML+=`<h2>Quantidade de Acertos: <a style= "color: rgb(31, 226, 17)">${pontosAcertos}</a>/3</h2>`
+            divPorcentagemAcertos.innerHTML+=`<h2>Quantidade de Acertos: <a style= "color: #161fc4">${pontosAcertos}</a>/3</h2>`
         } else{
-            divPorcentagemAcertos.innerHTML+=`<h2>Quantidade de Acertos: <a style= "color: rgb(31, 226, 17)">${pontosAcertos}</a>/3</h2>`
+            divPorcentagemAcertos.innerHTML+=`<h2>Quantidade de Acertos: <a style= "color: rgba(224, 40, 40, 0.952)">${pontosAcertos}</a>/3</h2>`
         }
 
 
@@ -185,7 +185,7 @@
                 label: 'Pontos',
                 data: [`${pontosAcertos}`, `${pontosErros}`],
                 backgroundColor: [
-                    'rgba(127, 224, 42, 0.952)',
+                    '#161fc4',
                     'rgba(224, 40, 40, 0.952)'
                 ],
                 hoverOffset: 4
