@@ -13,6 +13,7 @@ idTentativas int auto_increment primary key,
 email varchar(45) unique,
 TotalPontos int,
 fkUsuario int,
-constraint fkUsuarioTentativas foreign key (fkUsuario) references usuario(idUsuario)
+constraint fkUsuarioTentativas foreign key (fkUsuario) references usuario(idUsuario),
+constraint pkComposta primary key (idTentativas, fkUsuario)
 );
 

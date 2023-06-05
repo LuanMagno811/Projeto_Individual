@@ -8,11 +8,10 @@
     <title>Cadastro</title>
     <link rel="stylesheet" href="cadastro.css">
     <link rel="shortcut icon" href="img/UmbrellaIcon2.png">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 
 <body>
-
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <div class="fundoCadastro">
 
@@ -51,7 +50,7 @@
                 icon: 'success',
                 title: 'Cadastro realizado',
                 imageUrl: ''
-            })            
+            })
 
         } else {
             Swal.fire({
@@ -61,6 +60,118 @@
                 imageUrl: ''
             })
         }
-}
+    }
+</script>
+
+<script>
+    function cadastrar() {
+        aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = nome_input.value;
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+        var confirmacaoSenhaVar = confirmacao_senha_input.value;
+
+        if (nomeVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Nome em branco)";
+            // Swal.fire({
+            //     icon: 'error',
+            //     title: 'Oops...',
+            //     text: 'Nome em branco',
+            //     imageUrl: ''
+            // });
+
+            finalizarAguardar();
+            return false;
+        } else if (emailVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Email em branco)";
+            // Swal.fire({
+            //     icon: 'error',
+            //     title: 'Oops...',
+            //     text: 'Email em branco',
+            //     imageUrl: ''
+            // });
+
+            finalizarAguardar();
+            return false;
+        } else if (senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Senha em branco)";
+            // Swal.fire({
+            //     icon: 'error',
+            //     title: 'Oops...',
+            //     text: 'Senha em branco',
+            //     imageUrl: ''
+            // });
+
+            finalizarAguardar();
+            return false;
+        } else if (confirmacaoSenhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Confirme sua senha)";
+            // Swal.fire({
+            //     icon: 'error',
+            //     title: 'Oops...',
+            //     text: 'Confirme sua senha',
+            //     imageUrl: ''
+            // });
+
+            finalizarAguardar();
+            return false;
+        } else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML = "";
+                // Swal.fire({
+                //     icon: 'success',
+                //     title: 'Cadastro realizado com sucesso! Redirecionando para tela de Login...',
+                //     imageUrl: ''
+                // });
+
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000")
+
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
 
 </script>

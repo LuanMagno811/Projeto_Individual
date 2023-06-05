@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #1B2124;
+    background-color: #000000;
     font-family: monospace;
 }
 
@@ -19,7 +19,7 @@ body {
     display: flex;
     width: 100%;
     margin: auto;
-    background-color: #0e0f5f;
+    background-color: #0a0b44;
     background-blend-mode: multiply;
     /* position: sticky;
     top: 0; */
@@ -154,10 +154,12 @@ body {
 }
 
 .imgWelcome img {
+    width: 70%;
     margin-top: 4%;
     margin-bottom: 0%;
     display: flex;
     justify-content: center;
+    border-radius: 130px;
 }
 
 .tituloSobreFranquia {
@@ -183,8 +185,8 @@ body {
 
 .containerDivisoria {
     display: flex;
-    width: 70%;
-    margin: 3% 15%;
+    width: 60%;
+    margin: 3% 20%;
     height: 0.5px;
     background: white;
 }
@@ -221,7 +223,9 @@ body {
     margin-top: 3%;
     display: flex;
     justify-content: center;
-    width: 40%;
+    width: 30%;
+    border: 2px solid rgb(218, 14, 14);
+    border-radius: 15px;
 }
 
 .linkCritica {

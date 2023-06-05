@@ -34,6 +34,12 @@
     top: 0; */
 }
 
+.containerASimg{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
 
 /* ARMAS SECUNDARIAS */
 .TituloAS{
@@ -49,7 +55,7 @@
     display: flex;
     margin-left: 3%;
     margin-top: 100px;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
     padding: 30px;
     border: 1px solid white;
     border-radius: 10px;
@@ -71,7 +77,7 @@
     display: flex;
     border-radius: 10px;
     justify-content: center;
-    width: 50%;
+    width: 60%;
     border: 1px solid white;
 }
 
@@ -92,7 +98,7 @@
     display: flex;
     border-radius: 10px;
     justify-content: center;
-    width: 55%;
+    width: 65%;
     border: 1px solid white;
 }
 
@@ -110,3 +116,163 @@
 }
 
 /* PISTOLAS */
+
+.TituloP{
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 150%;
+}
+
+.armasPistolas{
+    display: flex;
+    margin-left: 3%;
+    /* margin-top: 100px; */
+    margin-bottom: 800px;
+    padding: 70px;
+    border: 1px solid white;
+    border-radius: 10px;
+    width: 95%;
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.349);
+}
+
+.linha1{
+    display: flex;
+    justify-content: space-between;
+}
+
+.linha2{
+    display: flex;
+    justify-content: space-between;
+}
+
+.linha3{
+    display: flex;
+    justify-content: space-between;
+}
+
+.Matilda{
+    width: 100%;
+    margin-right: 20%;
+}
+
+.sobreMatilda{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 85%;
+    font-size: 17px;
+    margin-bottom: 5%;
+}
+
+.sls60{
+    width: 100%;
+    margin-left: -50px;
+}
+
+.sobreSls60{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 110%;
+    font-size: 17px;
+    margin-bottom: 5%;
+}
+
+.imgSls60 img{
+    display: flex;
+    border-radius: 10px;
+    justify-content: center;
+    width: 70%;
+    border: 1px solid white;
+}
+
+.JmbHp3{
+    width: 100%;
+    margin-right: 20%;
+}
+
+.sobreJmbHp3{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 120%;
+    font-size: 17px;
+    margin-bottom: 5%;
+}
+
+.sobre{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 17px;
+}
+
+.HcCaboDeVassoura{
+    width: 100%;
+    margin-left: -4%;
+}
+
+.sobreHcCaboDeVassoura{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 110%;
+    font-size: 17px;
+    margin-bottom: 5%;
+}
+
+.imgMatilda img{
+    display: flex;
+    border-radius: 10px;
+    justify-content: center;
+    width: 45%;
+    border: 1px solid white;
+}
+
+.imgMUP img{
+    display: flex;
+    border-radius: 10px;
+    justify-content: center;
+    width: 45%;
+    border: 1px solid white;
+}
+
+.sobreMUP{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    font-size: 17px;
+    margin-bottom: 5%;
+}
+
+.imgM19 img{
+    display: flex;
+    border-radius: 10px;
+    justify-content: center;
+    width: 70%;
+    border: 1px solid white;
+}
+
+.M19{
+    margin-left: -6%;
+}
+
+.sobreM19{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 110%;
+    font-size: 17px;
+    margin-bottom: 5%;
+}
+
+.img img{
+    display: flex;
+    border-radius: 10px;
+    justify-content: center;
+    width: 65%;
+    border: 1px solid white;
+}
