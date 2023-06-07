@@ -8,6 +8,7 @@
     <title>Cadastro</title>
     <link rel="stylesheet" href="./css/cadastro.css">
     <link rel="shortcut icon" href="./img/UmbrellaIcon2.png">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="./js/sessao.js"></script>
 </head>
 
@@ -31,6 +32,10 @@
             </div>
         </div>
     </div>
+    <div id="div_aguardar" class="loading-div">
+        <img src="./img/Cadastro/circle-loading.gif" id="loading-gif">
+    </div>
+    <div class="div_erro_login" id="div_erros_login"></div>
 </body>
 
 
@@ -47,85 +52,85 @@
         var senhaVar = senha_input.value;
 
 
-        if(emailVar == ""){
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            // Swal.fire({
-            //     icon: 'error',
-            //     title: 'Oops...',
-            //     text: 'Email em branco',
-            //     imageUrl: ''
-            // });
+        if (emailVar != "") {
 
-            finalizarAguardar();
-            return false;
-        } else if(senhaVar == ""){
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            // Swal.fire({
-            //     icon: 'error',
-            //     title: 'Oops...',
-            //     text: 'Senha em branco',
-            //     imageUrl: ''
-            // });
+            if (senhaVar != "") {
 
-            finalizarAguardar();
-            return false;
-        } else {
-            setInterval(sumirMensagem, 5000)
-        }
+                fetch("/usuarios/autenticar", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        emailServer: emailVar,
+                        senhaServer: senhaVar
+                    })
+                }).then(function (resposta) {
+                    console.log("ESTOU NO THEN DO entrar()!")
 
-        console.log("FORM LOGIN: ", emailVar);
-        console.log("FORM SENHA: ", senhaVar);
+                    if (resposta.ok) {
+                        console.log("cheguei");
+                        console.log(resposta);
 
-        fetch("/usuarios/autenticar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                emailServer: emailVar,
-                senhaServer: senhaVar
-            })
-        }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
+                        resposta.json().then(json => {
+                            console.log(json);
+                            console.log(JSON.stringify(json));
+                            sessionStorage.EMAIL_USUARIO = json.email;
+                            sessionStorage.NOME_USUARIO = json.nome;
+                            sessionStorage.ID_USUARIO = json.id;
 
-            if (resposta.ok) {
-                console.log(resposta);
+                            setTimeout(function () {
+                                window.location = "./dashboard/Teste.html";
+                            }, 1000); // apenas para exibir o loading
 
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+                        });
 
-                    setTimeout(function () {
-                        window.location = "./dashboard/Teste.html";
-                    }, 1000); // apenas para exibir o loading
+                    } else {
+                        console.log("Houve um erro ao tentar realizar o login!");
 
-                });
+                        resposta.text().then(texto => {
+                            console.error(texto);
+                            finalizarAguardar(texto);
+                            Swal.fire({
+                                icon: '',
+                                title: 'Oops...',
+                                text: texto,
+                                imageUrl: ''
+                            });
+                        });
+                    }
+
+                }).catch(function (erro) {
+                    console.log(erro);
+                })
+
+                return false;
 
             } else {
-
-                console.log("Houve um erro ao tentar realizar o login!");
-
-                resposta.text().then(texto => {
-                    console.error(texto);
-                    finalizarAguardar(texto);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Senha em branco',
+                    imageUrl: ''
                 });
+
+                finalizarAguardar();
+                return false;
+
+                console.log("FORM LOGIN: ", emailVar);
+                console.log("FORM SENHA: ", senhaVar);
             }
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Email em branco',
+                imageUrl: ''
+            });
 
-        }).catch(function (erro) {
-            console.log(erro);
-        })
-
-        return false;
-    }
-
-    function sumirMensagem() {
-        cardErro.style.display = "none"
+            finalizarAguardar();
+            return false;
+        }
     }
 
 </script>

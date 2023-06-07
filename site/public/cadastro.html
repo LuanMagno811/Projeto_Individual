@@ -25,11 +25,13 @@
         <div class="containerCadastro">
             <div class="ItensCadastro">
                 <h4>Nome:</h4>
-                <input type="text" placeholder="nome" id="nomeInput">
+                <input required type="text" placeholder="nome" id="nome_input">
                 <h4>Email:</h4>
-                <input type="email" placeholder="nome@email.com" id="emailInput">
+                <input required type="email" placeholder="nome@email.com" id="email_input">
                 <h4>Senha:</h4>
-                <input type="password" placeholder="******" id="senhaInput">
+                <input required type="password" placeholder="******" id="senha_input">
+                <h4>Confirmação de Senha:</h4>
+                <input required type="password" placeholder="******" id="confirmacao_senha_input">
                 <button onclick="cadastrar()" href="" class="ButtonCadastro">CADASTRAR</button>
             </div>
         </div>
@@ -72,7 +74,7 @@
 
 <script>
     function cadastrar() {
-        //  
+        aguardar();
 
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
@@ -82,8 +84,6 @@
         var confirmacaoSenhaVar = confirmacao_senha_input.value;
 
         if (nomeVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Nome em branco)";
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
@@ -94,8 +94,6 @@
             finalizarAguardar();
             return false;
         } else if (emailVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Email em branco)";
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
@@ -106,8 +104,6 @@
             finalizarAguardar();
             return false;
         } else if (senhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Senha em branco)";
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
@@ -117,9 +113,7 @@
 
             finalizarAguardar();
             return false;
-        } else if (confirmacaoSenhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Confirme sua senha)";
+        } else if (senhaVar != confirmacaoSenhaVar) {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
@@ -130,55 +124,49 @@
             finalizarAguardar();
             return false;
         } else {
-            setInterval(sumirMensagem, 5000)
-        }
 
-        // Enviando o valor da nova input
-        fetch("/usuarios/cadastrar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-                nomeServer: nomeVar,
-                emailServer: emailVar,
-                senhaServer: senhaVar
-            })
-        }).then(function (resposta) {
 
-            console.log("resposta: ", resposta);
+            fetch("/usuarios/cadastrar", {
+                method: "POST",
+                headers: {
+                    // Enviando o valor da nova input
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    nomeServer: nomeVar,
+                    emailServer: emailVar,
+                    senhaServer: senhaVar
+                })
+            }).then(function (resposta) {
 
-            if (resposta.ok) {
-                cardErro.style.display = "block";
+                console.log("resposta: ", resposta);
 
-                mensagem_erro.innerHTML = "Sucesso";
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Cadastro realizado com sucesso! Redirecionando para tela de Login...',
-                    imageUrl: ''
-                });
+                if (resposta.ok) {
 
-                setTimeout(() => {
-                    window.location = "login.html";
-                }, "2000")
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Cadastro realizado com sucesso! Redirecionando para tela de Login...',
+                        imageUrl: ''
+                    });
 
-                limparFormulario();
+                    setTimeout(() => {
+                        window.location = "login.html";
+                    }, "2000")
+
+                    limparFormulario();
+                    finalizarAguardar();
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
                 finalizarAguardar();
-            } else {
-                throw ("Houve um erro ao tentar realizar o cadastro!");
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
-        });
+            });
 
-        return false;
-    }
-
-    function sumirMensagem() {
-        cardErro.style.display = "none"
+            return false;
+        }
     }
 
 </script>

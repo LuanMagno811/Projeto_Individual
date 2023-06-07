@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="shortcut icon" href="../img/UmbrellaIcon2.png">    
+    <link rel="shortcut icon" href="../img/UmbrellaIcon2.png">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/Teste.css">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -126,10 +126,23 @@
                     };
                     abrirGrafico();
                     divGrafico.style.display = "flex"
+                    salvarBanco();
 
                 })
         }
 
+    }
+
+
+    // INSERINDO NO BANCO AS INFORMAÇÕES DO TESTE
+    var database = require("../database/config");
+    
+    function salvarBanco(idUsuario) {
+
+        instrucaoSql = `select * from tentativa where fkUsuario = ${idUsuario}`;
+
+        console.log("Executando a instrução SQL: \n" + instrucaoSql);
+        return database.executar(instrucaoSql);
     }
 
 
@@ -168,10 +181,10 @@
             divQ3.innerHTML += `<h3>3.Quantas transformações Willian Birking infectado possui?<br><span style= "color: rgba(224, 40, 40, 0.952)">R: 5</span><br><br></h3>`
         }
 
-        if(pontosAcertos > 1){
-            divPorcentagemAcertos.innerHTML+=`<h2>Quantidade de Acertos: <a style= "color: #161fc4">${pontosAcertos}</a>/3</h2>`
-        } else{
-            divPorcentagemAcertos.innerHTML+=`<h2>Quantidade de Acertos: <a style= "color: rgba(224, 40, 40, 0.952)">${pontosAcertos}</a>/3</h2>`
+        if (pontosAcertos > 1) {
+            divPorcentagemAcertos.innerHTML += `<h2>Quantidade de Acertos: <a style= "color: #161fc4">${pontosAcertos}</a>/3</h2>`
+        } else {
+            divPorcentagemAcertos.innerHTML += `<h2>Quantidade de Acertos: <a style= "color: rgba(224, 40, 40, 0.952)">${pontosAcertos}</a>/3</h2>`
         }
 
 
