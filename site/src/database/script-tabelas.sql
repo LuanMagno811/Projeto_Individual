@@ -59,6 +59,12 @@ create table aquario (
 );
 
 /* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
+CREATE TABLE tentativa (
+	id INT PRIMARY KEY IDENTITY(1,1),
+	email VARCHAR(100),
+	TotalPontos INT,
+	fkUsuario INT FOREIGN KEY REFERENCES usuario(idUsuario)
+);
 
 CREATE TABLE medida (
 	id INT PRIMARY KEY IDENTITY(1,1),
