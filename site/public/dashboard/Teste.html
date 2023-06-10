@@ -39,8 +39,8 @@
             <div class="txtoQuiz">
                 <h2>Teste seu conhecimento de RE<a>2</a>!</h2>
             </div>
-            <input class="inputEmailTeste" type="email" id="inputEmailTeste" placeholder="email">
-            <button class="btnQuiz" onclick="QuizInicio()">
+            <input class="inputEmailTeste" type="email" id="inputemailVar" placeholder="email">
+            <button class="btnQuiz" onclick="entrarTeste()">
                 Quiz
             </button>
         </div>
@@ -57,7 +57,7 @@
 
 </body>
 <script>
-    var emailTeste = ""
+    var emailVar = 0
     var tentativas = 0
     // TotalDeAcertosBrutos[2][6][10]
     var TotalDeAcertosBrutos = []
@@ -66,16 +66,79 @@
     // JsonAcertos.x
     var JsonAcertos = {}
 
+    // Lista de emails inseridos 
+    var ListaEmail = [];
 
+
+    function entrarTeste() {
+        emailVar = (inputemailVar.value);
+
+        if (emailVar != "") {
+            
+            fetch("/teste/autenticar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    emailServer: emailVar,
+                })
+            }).then(function (resposta) {
+                console.log("ESTOU NO THEN DO entrar()!")
+
+                if (resposta.ok) {
+                    console.log("cheguei");
+                    console.log(resposta);
+
+                    resposta.json().then(json => {
+                        console.log(json);
+                        console.log(JSON.stringify(json));
+                        sessionStorage.EMAIL_USUARIO = json.email;
+                        sessionStorage.NOME_USUARIO = json.nome;
+                        sessionStorage.ID_USUARIO = json.id;
+
+                        QuizInicio();
+                    }); 
+
+                } else {
+                    console.log("Houve um erro ao tentar realizar o login!");
+
+                    resposta.text().then(texto => {
+                        console.error(texto);
+                        Swal.fire({
+                            icon: '',
+                            title: 'Oops...',
+                            text: 'Email invalido',
+                            imageUrl: ''
+                        });
+                    });
+                }
+
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+            console.log("FORM LOGIN: ", emailVar);
+
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Email em branco',
+                imageUrl: ''
+            });
+        }
+    }
 
     function QuizInicio() {
-        emailTeste = (inputEmailTeste.value);
+        emailVar = (inputemailVar.value);
 
-        if (emailTeste == "") {
+        if (emailVar == "") {
             alert(`Erro: email nulo ou invalido `)
-        } else if (tentativas > 0) {
-            alert(`Número de Tentativas exedidas `)
-        } else {
+        }
+        // else if (ListaEmail.indexOf(emailVar) != -1) {
+        //     alert(`Número de Tentativas exedidas `)
+        // }
+        else {
 
             Swal.mixin({
                 input: 'number',
@@ -127,11 +190,14 @@
                     abrirGrafico();
                     divGrafico.style.display = "flex"
                     salvarBanco();
-
-                })
+                });
+            // ListaEmail.push(emailVar);
         }
 
+
     }
+
+
 
 
     // // INSERINDO NO BANCO AS INFORMAÇÕES DO TESTE
@@ -161,32 +227,32 @@
         // Validação Acertos
         if (TotalDeAcertos[0] == 1) {
             pontosAcertos++;
-            divQ1.innerHTML += `<h3>1.Qual o significado da letra "S" do nome de Leon ?<br><span style= "color: #161fc4">R: 1.Scott</span><br><br></h3>`
+            divQ1.innerHTML = `<h3>1.Qual o significado da letra "S" do nome de Leon ?<br><span style= "color: #161fc4">R: 1.Scott</span><br><br></h3>`
         } else {
             pontosErros++;
-            divQ1.innerHTML += `<h3>1.Qual o significado da letra "S" do nome de Leon ?<br><span style= "color: rgba(224, 40, 40, 0.952)">R: 1.Scott</span><br><br></h3>`
+            divQ1.innerHTML = `<h3>1.Qual o significado da letra "S" do nome de Leon ?<br><span style= "color: rgba(224, 40, 40, 0.952)">R: 1.Scott</span><br><br></h3>`
         }
 
         if (TotalDeAcertos[1] == 2) {
             pontosAcertos++;
-            divQ2.innerHTML += `<h3>2.Qual o nome do Irmão de Claire Redfield?<br><span style= "color:#161fc4">R: 2.Chris Redfield</span><br><br></h3>`
+            divQ2.innerHTML = `<h3>2.Qual o nome do Irmão de Claire Redfield?<br><span style= "color:#161fc4">R: 2.Chris Redfield</span><br><br></h3>`
         } else {
             pontosErros++;
-            divQ2.innerHTML += `<h3>2.Qual o nome do Irmão de Claire Redfield?<br><span style= "color: rgba(224, 40, 40, 0.952)">R: 2.Chris Redfield</span><br><br></h3>`
+            divQ2.innerHTML = `<h3>2.Qual o nome do Irmão de Claire Redfield?<br><span style= "color: rgba(224, 40, 40, 0.952)">R: 2.Chris Redfield</span><br><br></h3>`
         }
 
         if (TotalDeAcertos[2] == 5) {
             pontosAcertos++;
-            divQ3.innerHTML += `<h3>3.Quantas transformações Willian Birking infectado possui?<br><span style= "color: #161fc4">R: 5</span><br><br></h3>`
+            divQ3.innerHTML = `<h3>3.Quantas transformações Willian Birking infectado possui?<br><span style= "color: #161fc4">R: 5</span><br><br></h3>`
         } else {
             pontosErros++;
-            divQ3.innerHTML += `<h3>3.Quantas transformações Willian Birking infectado possui?<br><span style= "color: rgba(224, 40, 40, 0.952)">R: 5</span><br><br></h3>`
+            divQ3.innerHTML = `<h3>3.Quantas transformações Willian Birking infectado possui?<br><span style= "color: rgba(224, 40, 40, 0.952)">R: 5</span><br><br></h3>`
         }
 
         if (pontosAcertos > 1) {
-            divPorcentagemAcertos.innerHTML += `<h2>Quantidade de Acertos: <a style= "color: #161fc4">${pontosAcertos}</a>/3</h2>`
+            divPorcentagemAcertos.innerHTML = `<h2>Quantidade de Acertos: <a style= "color: #161fc4">${pontosAcertos}</a>/3</h2>`
         } else {
-            divPorcentagemAcertos.innerHTML += `<h2>Quantidade de Acertos: <a style= "color: rgba(224, 40, 40, 0.952)">${pontosAcertos}</a>/3</h2>`
+            divPorcentagemAcertos.innerHTML = `<h2>Quantidade de Acertos: <a style= "color: rgba(224, 40, 40, 0.952)">${pontosAcertos}</a>/3</h2>`
         }
 
 
@@ -221,37 +287,37 @@
 
     function salvarBanco() {
         fetch("/tentativas/salvarBanco", {
-                method: "POST",
-                headers: {
-                    // Enviando o valor da nova input
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    // crie um atributo que recebe o valor recuperado aqui
-                    // Agora vá para o arquivo routes/usuario.js
-                    emailServer: emailTeste,
-                    TotalPontosServer: pontosAcertos,
-                    fkUsuarioServer: fkUsuario,
-                })
-            }).then(function (resposta) {
+            method: "POST",
+            headers: {
+                // Enviando o valor da nova input
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                emailServer: emailVar,
+                TotalPontosServer: pontosAcertos,
+                fkUsuarioServer: fkUsuario,
+            })
+        }).then(function (resposta) {
 
-                console.log("resposta: ", resposta);
+            console.log("resposta: ", resposta);
 
-                if (resposta.ok) {
+            if (resposta.ok) {
 
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Tentativa salva com sucesso!',
-                        imageUrl: ''
-                    });
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Tentativa salva com sucesso!',
+                    imageUrl: ''
+                });
 
-                    limparFormulario(); // ???
-                } else {
-                    throw ("Houve um erro ao tentar salvar os resultados!");
-                }
-            }).catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
-            });
+                limparFormulario(); // ???
+            } else {
+                throw ("Houve um erro ao tentar salvar os resultados!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
     }
 
 </script>

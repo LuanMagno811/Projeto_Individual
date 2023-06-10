@@ -46,6 +46,17 @@
     width: 40%;
 }
 
+.btnQuiz:hover{
+    /* display: flex;
+    border-radius: 5px;
+    margin-left: 110px;
+    margin-bottom: 5%;
+    width: 40%; */
+    transition: 0.5s;
+    background-color: #681212;
+    color: white;
+}
+
 .containerGrafico {
     display: flex;
     display: none;
