@@ -2,9 +2,9 @@ var TesteModel = require("../models/TesteModel");
 
 function salvarBanco(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var email = req.body.emailTeste;
-    var TotalPontos = req.body.pontosAcertos;
-    var fkUsuario = req.body.fkUsuario;
+    var email = req.body.emailServer;
+    var TotalPontos = req.body.TotalPontosServer;
+    var fkUsuario = req.body.fkUsuarioServer;
 
     // Faça as validações dos valores
     // if (nome == undefined) {

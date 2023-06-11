@@ -7,7 +7,7 @@ function salvarBanco(email, TotalPontos, fkUsuario) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucaoSql = `
-        INSERT INTO tentativa (email, TotalPontos, idUsuario) VALUES ('${email}', '${TotalPontos}', '${fkUsuario}' );
+        INSERT INTO tentativa (email, TotalPontos, fkUsuario) VALUES ('${email}', '${TotalPontos}', '${fkUsuario}' );
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

@@ -24,6 +24,5 @@ function cadastrar(nome, email, senha) {
 
 module.exports = {
     cadastrar,
-    entrarTeste,
     entrar
 };
