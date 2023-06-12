@@ -16,7 +16,7 @@
 
 <body>
 
-    <div class="containerHeader">
+    <!-- <div class="containerHeader">
         <div class="headerContainer">
             <div class="ImgLogo">
                 <a href="../index.html">
@@ -32,7 +32,7 @@
                 <li><a href="../cadastro.html" class="ButtonLoggin">CADASTRO</a></li>
             </ul>
         </div>
-    </div>
+    </div> -->
 
     <div class="paginaTeste">
         <div class="containerPerguntas">
@@ -44,14 +44,17 @@
                 Quiz
             </button>
         </div>
-        <div id="divGrafico" class="containerGrafico">
-            <canvas id="myChart1" style="position: relative; height: 40vh; width: 40vw;"></canvas>
-            <div class="textosTeste">
-                <div id="divQ1" class="textoQ1"></div>
-                <div id="divQ2" class="textoQ2"></div>
-                <div id="divQ3" class="textoQ3"></div>
-                <div id="divPorcentagemAcertos" class="porcentagemAcertos"></div>
+        <div id="divGrafico" class="boxAnalytics">
+            <div class="containerGrafico">
+                <canvas id="myChart1" style="position: relative; height: 40vh; width: 40vw;"></canvas>
+                <div class="textosTeste">
+                    <div id="divQ1" class="textoQ1"></div>
+                    <div id="divQ2" class="textoQ2"></div>
+                    <div id="divQ3" class="textoQ3"></div>
+                    <div id="divPorcentagemAcertos" class="porcentagemAcertos"></div>
+                </div>
             </div>
+            <button class="btnLO" onclick="limparSessao()">Logout</button>
         </div>
     </div>
 
@@ -130,6 +133,11 @@
         }
     }
 
+    function limparSessao() {
+        sessionStorage.clear();
+        window.location = "../index.html";
+    }
+
     function QuizInicio() {
         emailVar = (inputemailVar.value);
 
@@ -188,7 +196,7 @@
                         Q3: TotalDeAcertos[2],
                     };
                     abrirGrafico();
-                    divGrafico.style.display = "flex"
+                    divGrafico.style.display = "block"
                     salvarBanco();
                 });
             ListaEmail.push(emailVar);
@@ -287,80 +295,46 @@
 
     function salvarBanco() {
 
-        fetch("/teste/autenticar", {
+        fetch("/teste/salvar", {
             method: "POST",
             headers: {
+                // Enviando o valor da nova input
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                emailServer: emailVar,
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                emailServer: sessionStorage.EMAIL_USUARIO,
+                TotalPontosServer: pontosAcertos,
+                fkUsuarioServer: sessionStorage.ID_USUARIO,
             })
         }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
 
-            if (resposta.ok) {
-                console.log("cheguei");
-                console.log(resposta);
+            resposta.json().then(json => {
+                console.log(json);
+                console.log(JSON.stringify(json));
+                sessionStorage.EMAIL_USUARIO = json.email;
+                sessionStorage.NOME_USUARIO = json.nome;
+                sessionStorage.ID_USUARIO = json.id;
+                console.log("resposta: ", resposta);
 
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
 
-                    fetch("/teste/salvar", {
-                        method: "POST",
-                        headers: {
-                            // Enviando o valor da nova input
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify({
-                            // crie um atributo que recebe o valor recuperado aqui
-                            // Agora vá para o arquivo routes/usuario.js
-                            emailServer: sessionStorage.EMAIL_USUARIO,
-                            TotalPontosServer: pontosAcertos,
-                            fkUsuarioServer: sessionStorage.ID_USUARIO,
-                        })
-                    }).then(function (resposta) {
+                if (resposta.ok) {
 
-                        console.log("resposta: ", resposta);
-
-                        if (resposta.ok) {
-
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'Tentativa salva com sucesso!',
-                                imageUrl: ''
-                            });
-
-                            limparFormulario(); // ???
-                        } else {
-                            throw ("Houve um erro ao tentar salvar os resultados!");
-                        }
-                    }).catch(function (resposta) {
-                        console.log(`#ERRO: ${resposta}`);
-                    });
-                });
-
-            } else {
-                console.log("Houve um erro ao tentar realizar o login!");
-
-                resposta.text().then(texto => {
-                    console.error(texto);
                     Swal.fire({
-                        icon: '',
-                        title: 'Oops...',
-                        text: 'Email invalido',
+                        icon: 'success',
+                        title: 'Tentativa salva com sucesso!',
                         imageUrl: ''
                     });
-                });
-            }
 
-        }).catch(function (erro) {
-            console.log(erro);
-        })
-        console.log("FORM LOGIN: ", emailVar);
+                    limparFormulario(); // ???
+                } else {
+                    throw ("Houve um erro ao tentar salvar os resultados!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+        });
     }
 
 </script>

@@ -7,7 +7,7 @@
     width: 25%;
     height: 150px;
     align-self: center;
-    margin-left: 35%;
+    margin-left: 37%;
     margin-top: 50px;
     margin-bottom: 100px;
 }
@@ -52,14 +52,18 @@
     margin-left: 110px;
     margin-bottom: 5%;
     width: 40%; */
+    display: flex;
     transition: 0.5s;
     background-color: #681212;
     color: white;
 }
 
+#divGrafico{
+    display: none;
+}
+
 .containerGrafico {
     display: flex;
-    display: none;
     justify-content: space-around;
     align-items: center;
     background-color: rgba(255, 255, 255, 0.952);
@@ -80,4 +84,57 @@
 
 .porcentagemAcertos{
     display: flex;
+}
+
+.boxAnalytics{
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+/* .btnLO{
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    margin-left: 50%;
+    margin-bottom: 5%;
+    width: 40%;
+} */
+
+/* .btnLO:hover{
+     display: flex;
+    border-radius: 5px;
+    margin-left: 110px;
+    margin-bottom: 5%;
+    width: 40%;
+    display: flex;
+    transition: 0.5s;
+    background-color: #681212;
+    color: white;
+} */
+
+.boxAnalytics button{
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin-left: 45%;
+    width: 5%;
+    height: 30px;
+    margin-top: 5px;
+}
+
+.boxAnalytics button:hover{
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin-left: 45%;
+    width: 5%;
+    height: 30px;
+    margin-top: 5px;
+    transition: 0.5s;
+    background-color: #681212;
+    color: white;
 }
