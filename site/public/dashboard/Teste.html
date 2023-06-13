@@ -39,10 +39,11 @@
             <div class="txtoQuiz">
                 <h2>Teste seu conhecimento de RE<a>2</a>!</h2>
             </div>
-            <input class="inputEmailTeste" type="email" id="inputemailVar" placeholder="email">
+            <!-- <input class="inputEmailTeste" type="email" id="inputemailVar" placeholder="email"> -->
             <button class="btnQuiz" onclick="entrarTeste()">
                 Quiz
             </button>
+            <button class="btnQuiz" onclick="limparSessao()">Logout</button>
         </div>
         <div id="divGrafico" class="boxAnalytics">
             <div class="containerGrafico">
@@ -54,7 +55,6 @@
                     <div id="divPorcentagemAcertos" class="porcentagemAcertos"></div>
                 </div>
             </div>
-            <button class="btnLO" onclick="limparSessao()">Logout</button>
         </div>
     </div>
 
@@ -74,63 +74,63 @@
 
 
     function entrarTeste() {
-        emailVar = (inputemailVar.value);
+        // emailVar = (inputemailVar.value);
 
-        if (emailVar != "") {
+        // if (emailVar != "") {
 
-            fetch("/teste/autenticar", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    emailServer: emailVar,
-                })
-            }).then(function (resposta) {
-                console.log("ESTOU NO THEN DO entrar()!")
-
-                if (resposta.ok) {
-                    console.log("cheguei");
-                    console.log(resposta);
-
-                    resposta.json().then(json => {
-                        console.log(json);
-                        console.log(JSON.stringify(json));
-                        sessionStorage.EMAIL_USUARIO = json.email;
-                        sessionStorage.NOME_USUARIO = json.nome;
-                        sessionStorage.ID_USUARIO = json.id;
-
-
-                        QuizInicio();
-                    });
-
-                } else {
-                    console.log("Houve um erro ao tentar realizar o login!");
-
-                    resposta.text().then(texto => {
-                        console.error(texto);
-                        Swal.fire({
-                            icon: '',
-                            title: 'Oops...',
-                            text: 'Email invalido',
-                            imageUrl: ''
-                        });
-                    });
-                }
-
-            }).catch(function (erro) {
-                console.log(erro);
+        fetch("/teste/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: sessionStorage.EMAIL_USUARIO,
             })
-            console.log("FORM LOGIN: ", emailVar);
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
 
-        } else {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Email em branco',
-                imageUrl: ''
-            });
-        }
+            if (resposta.ok) {
+                console.log("cheguei");
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+
+
+                    QuizInicio();
+                });
+
+            } else {
+                console.log("Houve um erro ao tentar iniciar o quiz!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    Swal.fire({
+                        icon: '',
+                        title: 'Oops...',
+                        text: 'Número de Tentativas exedidas.',
+                        imageUrl: ''
+                    });
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+        console.log("FORM LOGIN: ", sessionStorage.EMAIL_USUARIO);
+
+        // } else {
+        //     Swal.fire({
+        //         icon: 'error',
+        //         title: 'Oops...',
+        //         text: 'Email em branco',
+        //         imageUrl: ''
+        //     });
+        // }
     }
 
     function limparSessao() {
@@ -139,20 +139,22 @@
     }
 
     function QuizInicio() {
-        emailVar = (inputemailVar.value);
+        // emailVar = (inputemailVar.value);
 
-        if (emailVar == "") {
-            alert(`Erro: email nulo ou invalido `)
-        } else if (ListaEmail.indexOf(emailVar) != -1) {
-            alert(`Número de Tentativas exedidas `)
-        }
-        else {
+        // if (emailVar == "") {
+        //     alert(`Erro: email nulo ou invalido `)
+        // } else if (ListaEmail.indexOf(emailVar) != -1) {
+        //     alert(`Número de Tentativas exedidas. \nRecarregue a página para uma nova tentativa `)
+        // }
+        // else {
+
+        if (ListaEmail.indexOf(sessionStorage.EMAIL_USUARIO) == -1) {
 
             Swal.mixin({
                 input: 'number',
                 confirmButtonText: 'Next →',
                 showCancelButton: true,
-                resultados: ['1', '2', '3']
+                resultados: ['1', '2', '3', '4']
             })
 
                 .queue([
@@ -201,9 +203,10 @@
                 });
             ListaEmail.push(emailVar);
         }
-
-
     }
+
+
+    // }
 
 
 
@@ -315,7 +318,7 @@
                 console.log(JSON.stringify(json));
                 sessionStorage.EMAIL_USUARIO = json.email;
                 sessionStorage.NOME_USUARIO = json.nome;
-                sessionStorage.ID_USUARIO = json.id;
+                sessionStorage.ID_USUARIO = json.idUsuario;
                 console.log("resposta: ", resposta);
 
 
@@ -327,7 +330,6 @@
                         imageUrl: ''
                     });
 
-                    limparFormulario(); // ???
                 } else {
                     throw ("Houve um erro ao tentar salvar os resultados!");
                 }
