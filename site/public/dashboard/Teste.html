@@ -262,8 +262,10 @@
 
         if (pontosAcertos > 1) {
             divPorcentagemAcertos.innerHTML = `<h2>Quantidade de Acertos: <a style= "color: #161fc4">${pontosAcertos}</a>/3</h2>`
+            divPorcentagemAcertos.innerHTML += `<h2>Porcentagem de acerto: <a style= "color: #161fc4">${((100/3)*pontosAcertos).toFixed(0)}</a>%</h2>`
         } else {
             divPorcentagemAcertos.innerHTML = `<h2>Quantidade de Acertos: <a style= "color: rgba(224, 40, 40, 0.952)">${pontosAcertos}</a>/3</h2>`
+            divPorcentagemAcertos.innerHTML += `<h2>Porcentagem de acerto:<a style= "color: rgba(224, 40, 40, 0.952)">${((100/3)*pontosAcertos).toFixed(0)}</a>%</h2>`
         }
 
 
